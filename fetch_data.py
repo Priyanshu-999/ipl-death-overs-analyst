@@ -52,7 +52,9 @@ def combine_matches(raw_dir=RAW_DIR, output=OUTPUT_PATH):
     frames = [pd.read_csv(f) for f in files]
     combined = pd.concat(frames, ignore_index=True)
     combined.to_csv(output, index=False)
-    seasons = sorted(combined["season"].dropna().unique().tolist())
+    # Season labels are not all plain years (some span two calendar years,
+    # e.g. "2020/21"), so sort them as text instead of numbers.
+    seasons = sorted(str(s) for s in combined["season"].dropna().unique().tolist())
     print(f"Wrote {len(combined):,} delivery rows to {output}")
     print(f"Seasons covered: {seasons[0]}-{seasons[-1]} ({len(seasons)} seasons)")
     print(f"Matches (distinct match_id): {combined['match_id'].nunique():,}")
