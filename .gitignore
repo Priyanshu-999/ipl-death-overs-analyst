@@ -1,0 +1,5 @@
+# Downloaded data and generated database are reproducible via fetch_data.py
+data/
+*.db
+__pycache__/
+*.pyc
