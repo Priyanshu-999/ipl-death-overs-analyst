@@ -25,6 +25,7 @@ pip install -r requirements.txt
 python fetch_data.py   # downloads Cricsheet data, builds data/deliveries.csv
 python analysis.py     # cleans, ranks, charts, builds data/ipl.db
 sqlite3 data/ipl.db < queries.sql   # the same rankings, in SQL
+python docs/make_understanding_pdf.py  # rebuilds docs/UNDERSTANDING.pdf
 ```
 
 ## Definitions (used identically in Python and SQL)
@@ -48,7 +49,8 @@ sqlite3 data/ipl.db < queries.sql   # the same rankings, in SQL
    but on only 103 legal balls in 10 matches, just over the threshold.
    The high-volume economy king is **SP Narine at 7.25** over 1,105
    legal balls in 142 matches.
-2. **Most death-over wickets:** Bhuvneshwar Kumar with **119** (1,605
+2. **Most death-over wickets:** B Kumar (Bhuvneshwar Kumar — the
+   dataset lists him as "B Kumar") with **119** (1,605
    balls, 169 matches, economy 9.30), then DJ Bravo with 115, then
    **SL Malinga with 108 at an economy of only 7.86**.
 3. **The rare double:** Malinga and Narine are the only bowlers who are
@@ -58,7 +60,7 @@ sqlite3 data/ipl.db < queries.sql   # the same rankings, in SQL
 4. **Best dot-ball percentage:** Noor Ahmad at 40.4% of legal death
    balls (151 balls, 22 matches); Narine again at 37.4% over 1,105 balls.
 5. **The answer to the question:** nobody dominates both lists, and
-   that *is* the insight. Wicket-takers like Bhuvneshwar and Bravo leak
+   that *is* the insight. Wicket-takers like B Kumar and Bravo leak
    9.3+ runs per over, because attacking bowling costs runs. If you
    must pick one death bowler from this data, pick Malinga
    (108 wickets, 7.86 economy) or Narine (84 wickets, 7.25 economy) —

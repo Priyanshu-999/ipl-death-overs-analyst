@@ -82,7 +82,8 @@ SECTIONS = [
         "runs, wickets, dots, economy and dot-ball percentage, then "
         "flags bowlers with 100+ legal balls as qualified. Why: one "
         "groupby replaces dozens of manual loops. Output: a ranked "
-        "DataFrame and data/death_bowler_stats.csv. analysis.py - "
+        "DataFrame (main() then writes it to "
+        "data/death_bowler_stats.csv). analysis.py - "
         "save_charts(qualified): draws the economy top 15, the wickets "
         "vs economy scatter, and the dot-ball top 15. Why: a chart shows "
         "the trade-off between wickets and economy faster than a table. "
@@ -90,7 +91,12 @@ SECTIONS = [
         "save_database(df, stats): writes the cleaned deliveries and the "
         "bowler stats into data/ipl.db. Why: SQL practice on the same "
         "data, and proof the Python numbers match the SQL numbers. "
-        "Output: the SQLite database file.",
+        "Output: the SQLite database file. The two main() functions "
+        "are the entry points: fetch_data.py main() runs download_zip, "
+        "extracts the zip and runs combine_matches; analysis.py main() "
+        "reads deliveries.csv, runs clean_data and bowler_death_stats, "
+        "writes data/death_bowler_stats.csv, prints the top-10 tables, "
+        "and runs save_charts and save_database.",
     ),
     (
         "6. Key findings (from the real data)",
@@ -98,7 +104,8 @@ SECTIONS = [
         "Sohail Tanvir at 6.82 runs per over, but on only 103 balls in 10 "
         "matches, so treat that with caution. The high-volume economy "
         "leader is SP Narine at 7.25 over 1,105 balls in 142 matches. "
-        "Most death wickets: Bhuvneshwar Kumar with 119, then DJ Bravo "
+        "Most death wickets: B Kumar (Bhuvneshwar Kumar, listed as "
+        "B Kumar in the dataset) with 119, then DJ Bravo "
         "with 115, then SL Malinga with 108 at an economy of only 7.86. "
         "Best dot-ball percentage: Noor Ahmad at 40.4 percent (151 "
         "balls), then Narine at 37.4 percent over 1,105 balls. The honest "
