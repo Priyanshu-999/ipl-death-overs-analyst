@@ -94,13 +94,3 @@ Python (pandas), SQL (SQLite), matplotlib charts, data cleaning
 pipelines (fetch -> clean -> analyse -> chart), and honest reporting
 of sample sizes and caveats.
 
-## Pushing this repo to your own GitHub (run these yourself)
-
-```bash
-git remote add origin <your-repo-url>
-git push -u origin main
-```
-
-Replace `<your-repo-url>` with the URL of the empty repo you create
-on GitHub. The data folder is ignored by git on purpose; anyone who
-clones the repo re-downloads the data with `python fetch_data.py`.
